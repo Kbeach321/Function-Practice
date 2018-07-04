@@ -49,29 +49,10 @@
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
 
-  // // function rovarsparaket(str){
-  //
-  // 	var strArray = str.split('');
-  // 	console.log('string array', strArray);
-  //
-  // 	// create an empty array
-  // 	var translatedString = [];
-  // // for loop to add characters into translatedString array
-  // 	for(var i = 0; i < strArray.length; i++) {
-  // 		 console.log('char', strArray[i]);
-  //
-  // 		if(true) {
-  // 			// double the consonant, add a o between it
-  // 			// add that string into the translatedString array
-  // 		} else {
-  // 			// add string into the translatedString array
-  // 		}
-  // 	}
-  // // join the characters in the translatedString array together into a sentence
-  //
-  // }
-  //
+
   // rovarsparaket('this is fun');
+
+  // console.assert(rovarsparaket('this is fun')=== 'tothohisos isos fofunon', "Incorrect")
 
   // ---------------------
   // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
@@ -116,44 +97,46 @@
   // Determine longestword from an array //
   // Array --> reduce --> record length //
   function findLongestWord(wordArray) {
-    return wordArray.reduce((a, b) => {
-        if (b.length > a.length) {
-          return b;
-        } else {
-          return a;
-        }
-      return wordArray.length;
-    })
-  }
+    var longestWordLength = '';
 
-  console.log(findLongestWord(wordArray))
+    wordArray.forEach(function(word) {
+      if (word.length > longestWordLength) {
+        longestWordLength = word.length;
+      }
+    });
+
+    return longestWordLength;
+  }
+  // console.log(findLongestWord(wordArray))
+
+  console.assert(findLongestWord(wordArray) === 7, "incorrect")
 
 
   // ---------------------
   // Define a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
   // ---------------------
   // Return longer words than input(i) //
-  function filterLongWords() {
-
+  function filterLongWords(array, i) {
+    var longerArray = [];
+    for (var j = 0; j < array.length; j++) {
+      if (array[j].length > i) {
+        longerArray.push(array[j])
+      }
+    }
+    return longerArray;
   }
 
-
+  var testArray = ['this', 'is', 'hard', 'zzsdzsdzsdz'];
+  console.log(filterLongWords(testArray, 3))
+  console.assert(filterLongWords(testArray, 3).length === 3, "incorrect")
 
 
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
   // Counts char frequency //
-	// Empty Object to hold numbers, itterate over string //
-  function charFreq(str) {
-		var letters = {}
-		for (var i=0; i<string.length;i++){
-			
-		}
 
-  }
-
-
-
-
+  // function charFreq(){
+  //
+  // }
 })();
