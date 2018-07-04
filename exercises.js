@@ -49,10 +49,24 @@
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
 
+  function rovarsparaket(string) {
+    var vowels = ['a', 'e', 'i', 'o', 'u'];
+    var translation = '';
 
-  // rovarsparaket('this is fun');
+    for(var i = 0; i < string.length; i++) {
+      if(string[i] === ' ' || vowels.indexOf(string[i]) !== -1) {
 
-  // console.assert(rovarsparaket('this is fun')=== 'tothohisos isos fofunon', "Incorrect")
+        translation += string[i];
+      } else {
+        translation += string[i] + 'o' + string[i];
+      }
+    }
+    return translation;
+  }
+
+  rovarsparaket('this is fun');
+
+  console.assert(rovarsparaket('this is fun')=== 'tothohisos isos fofunon', "Incorrect")
 
   // ---------------------
   // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
@@ -127,7 +141,6 @@
   }
 
   var testArray = ['this', 'is', 'hard', 'zzsdzsdzsdz'];
-  console.log(filterLongWords(testArray, 3))
   console.assert(filterLongWords(testArray, 3).length === 3, "incorrect")
 
 
@@ -136,7 +149,20 @@
   // ---------------------
   // Counts char frequency //
 
-  // function charFreq(){
-  //
-  // }
+  function charFreq(string) {
+    var letterObject = {};
+    for (var i = 0; i < string.length; i++) {
+      if(letterObject[string[i]]){
+        // letterObject[string[i]] = letterObject[string[i]] + 1;
+        letterObject[string[i]] += 1;
+      } else {
+        letterObject[string[i]]=1;
+      }
+    }
+    return letterObject;
+  }
+
+  var testString = "ababababababababcc"
+  console.log(charFreq(testString))
+
 })();
